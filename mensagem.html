@@ -115,11 +115,19 @@
      Obrigada por fazer parte da minha vida. 💖</p>
 
   <!-- Botão para iniciar a música -->
-  <button onclick="document.getElementById('audio').play()">💗 Clique aqui para ouvir nossa música</button>
+  <button onclick="tocarMusica()">💗 Clique aqui para ouvir nossa música</button>
 
   <audio id="audio">
     <source src="Die For You.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio 😢
   </audio>
+
+  <script>
+    function tocarMusica() {
+      const audio = document.getElementById("audio");
+      audio.volume = 0.7;
+      audio.play();
+    }
+  </script>
 </body>
 </html>
