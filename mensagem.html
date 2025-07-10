@@ -80,11 +80,23 @@
       from {opacity: 0;}
       to {opacity: 1;}
     }
-    audio {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
       z-index: 2;
+      position: relative;
+    }
+    button:hover {
+      background-color: #e055a4;
+    }
+    audio {
+      display: none;
     }
   </style>
 </head>
@@ -102,7 +114,10 @@
      Que seu dia seja incrível, assim como você.<br>
      Obrigada por fazer parte da minha vida. 💖</p>
 
-  <audio autoplay loop controls>
+  <!-- Botão para iniciar a música -->
+  <button onclick="document.getElementById('audio').play()">💗 Clique aqui para ouvir nossa música</button>
+
+  <audio id="audio">
     <source src="musica.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio 😢
   </audio>
