@@ -4,38 +4,60 @@
   <meta charset="UTF-8" />
   <title>Feliz Aniversário 💖</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #ffc1e3, #ffe6f0);
       font-family: 'Segoe UI', sans-serif;
-      text-align: center;
+      background: linear-gradient(to right, #ffc1e3, #ffe6f0);
       color: #8b005d;
-      animation: fadeIn 2s ease-in-out;
-      position: relative;
-      overflow: hidden;
+      text-align: center;
+      overflow-x: hidden;
       min-height: 100vh;
     }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
     h1 {
-      margin-top: 50px;
+      margin-top: 60px;
       font-size: 36px;
     }
     p {
       font-size: 20px;
       margin-top: 20px;
       max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      line-height: 1.5;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 2;
+      position: relative;
+    }
+    button:hover {
+      background-color: #e055a4;
     }
     .hearts {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
+      z-index: 0;
       overflow: hidden;
-      z-index: 1;
     }
     .heart {
       position: absolute;
@@ -44,7 +66,6 @@
       background-color: pink;
       transform: rotate(45deg);
       animation: float 6s infinite ease-in;
-      z-index: 1;
     }
     .heart::before,
     .heart::after {
@@ -76,25 +97,6 @@
         opacity: 0;
       }
     }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-    button {
-      margin-top: 30px;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      z-index: 2;
-      position: relative;
-    }
-    button:hover {
-      background-color: #e055a4;
-    }
     audio {
       display: none;
     }
@@ -109,8 +111,10 @@
     <div class="heart" style="left: 90%; animation-delay: 4s;"></div>
   </div>
 
-  <h1>🎂💕</h1><br>
- <p>Meu amor, primeiramente, feliz aniversário!!
+  <h1>Feliz Aniversário, amor! 🎂💕</h1>
+
+  <p>
+    Meu amor, primeiramente, feliz aniversário!!
 Que sua vida seja repleta de felicidade, conquistas, amor e ternura. <br>
 
 Desejo muita saúde a você e que consiga atingir todos os seus objetivos, você merece tudo de melhor nesse mundo! <br>
@@ -134,11 +138,11 @@ E obrigada! Obrigada por estar comigo, me amar de uma forma tão gentil e me tra
 Eu te amo intensamente.<br>
 
 bjos,<br>
-Kity🩷</p>
-     
+Kity🩷
+  </p>
 
   <!-- Botão para iniciar a música -->
-  <button onclick="tocarMusica()">💗 Clique aqui para ouvir nossa música</button>
+  <button onclick="tocarMusica()">💗 Quero te dedicar uma música...</button>
 
   <audio id="audio">
     <source src="Die For You.mp3" type="audio/mpeg">
