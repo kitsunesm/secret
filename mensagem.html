@@ -101,11 +101,8 @@
     }
     #letra {
       display: none;
-      animation: fadeIn 1s ease forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      opacity: 0;
+      transition: opacity 1s ease;
     }
     .lyrics p {
       font-size: 18px;
@@ -135,7 +132,7 @@
     Meu amor, primeiramente, feliz aniversário!!<br>
     Que sua vida seja repleta de felicidade, conquistas, amor e ternura.<br><br>
     Desejo muita saúde a você e que consiga atingir todos os seus objetivos, você merece tudo de melhor nesse mundo!<br><br>
-    [...] (resto da mensagem aqui como antes)<br><br>
+    [...]<br><br>
     Eu te amo intensamente.<br>
     bjos,<br>
     Kity🩷
@@ -169,16 +166,23 @@
       <p>Em seus olhos<br><i>In your eyes</i></p>
       <p>Você mente, mas eu não deixo isso definir você<br><i>You lie, but I don't let it define you</i></p>
       <p>Oh, definir você<br><i>Oh, define you</i></p>
-      <!-- você pode adicionar o resto aqui se quiser -->
     </div>
   </div>  <script>
     function tocarEMostrar() {
       const audio = document.getElementById("audio");
       const letra = document.getElementById("letra");
+
       audio.volume = 0.7;
-      audio.play();
-      letra.style.display = "block";
-      letra.scrollIntoView({ behavior: "smooth" });
+
+      audio.play().then(() => {
+        letra.style.display = "block";
+        setTimeout(() => {
+          letra.style.opacity = 1;
+          letra.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+      }).catch(() => {
+        alert("Clique para permitir o som :)");
+      });
     }
   </script></body>
 </html>
